@@ -1,0 +1,62 @@
+This is done by Yanan Liang<hellenliang0605@gmail.com>
+-----------------------------------------------------------------
+Instructions for testing:
+
+Please put all the test strings into the file named: "input.txt"
+
+Command line: ./Find.exe
+Output: all the points representing in x and y coordinates
+	time elapsing for d&c algorithm
+	shortest length fond by d&c algorithm
+	time elapsing for brute force algorithm
+	shortest length fond by brute force algorithm
+
+******************************************************************
+
+What do I have in Find.cpp:
+
+
+
+empty constructor and distructor
+d&c algorithm (I named method2)
+Brute force algorithm (I named method3)
+insertion-sort algorithm (I named sort)
+
+******************************************************************
+
+My pseudo code for d&c to find the closest pair:
+
+
+
+method2 (xP[], yP[], size)
+               where xP is P(1) .. P(N) sorted by x coordinate, 
+                     yP is P(1) .. P(N) sorted by y coordinate 
+if N ≤ 3 then
+  return closest length of xP using brute-force algorithm
+else
+  xL ← points of xP from 1 to ⌈N/2⌉
+  xR ← points of xP from ⌈N/2⌉+1 to N
+  xm ← xP(⌈N/2⌉)x
+  yL ← { p ∈ yP : px ≤ xm }
+  yR ← { p ∈ yP : px > xm }
+  dL ← closestLength found in (xL, yL)
+  dR ← closestLength found in (xR, yR)
+  dmin ← dR
+  if dL < dR then
+    dmin ← (dL
+  endif
+  yS ← { p ∈ yP : |xm - px| < dmin }
+  nS ← number of points in yS
+  closest ← dmin
+  for i from 1 to nS - 1
+    k ← from i-3 to i+3
+      compare closest with d(point_i and point_k)
+      if(closest < d(point_i and point_k))
+	swap(closest , d(point_i and point_k))
+      endif
+  endfor
+  return closest
+endif
+
+
+Thanks for reading!!!
